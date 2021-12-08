@@ -56,6 +56,8 @@ public class BeerOrderServiceImpl implements BeerOrderService {
     @Transactional
     @Override
     public BeerOrderDto placeOrder(UUID customerId, BeerOrderDto beerOrderDto) {
+        log.debug("Placing Order " + beerOrderDto.toString());
+
         Optional<Customer> customerOptional = customerRepository.findById(customerId);
 
         if (customerOptional.isPresent()) {
